@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+</head>
+<body>
+	<button onclick="geolocalizar()">Encuentrame</button>
+	<script type="text/javascript">
+		function geolocalizar() {
+			if (navigator.geolocation) {
+				document.write("Este navegador si soporta la geolocalizacion")
+			}else{
+				document.write("Este navegador no soporta la geolocalizacion")
+			}
+
+			function localizar(posicion){
+				var longitud=posicion.coords.longitude
+				var latitud=posicion.coords.latitude
+
+				document.write("Latitud: "+latitud+" y longitud: "+longitud)
+				//document.write("<br><br><a href='https://maps.google.com/?q="+latitud+","+longitud+"'>Ir al mapa</a>")
+				document.write("<img src='https://maps.googleapis.com/maps/api/staticmap?center="+latitud+","+longitud+"&zoom=14&size=400x400&key=AIzaSyDqDoBltkgLqlDTCDyO6uGx6fhWf2WBZWw'></img>")
+			}
+			function error(){
+				document.write("No se pude wey")
+			}
+			navigator.geolocation.getCurrentPosition(localizar,error)
+		}
+	</script>
+</body>
+</html>

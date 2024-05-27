@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+</head>
+<body>
+	<h2>Ejemplo 2_geolocalizacion</h2>
+	<h3>En este ejercicio se obtiene la latitud y longitud del dispositivo</h3>
+	<button onclick="geolocalizar()">Mostrar mapa</button>
+	<script type="text/javascript">
+	function geolocalizar() {
+			function localizar(posicion){
+				var longitud=posicion.coords.longitude
+				var latitud=posicion.coords.latitude
+
+				document.write('<iframe width="600xp" height="400xp" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyA4UlEJg5r21mDCZTKeulV80pq5mS-9WxE&q='+latitud+','+longitud+'"></iframe>')
+			}
+			function error(){
+				document.write("No se pude wey")
+			}
+			navigator.geolocation.getCurrentPosition(localizar,error)
+		}
+	</script>
+</body>
+</html>
